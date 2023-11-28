@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        
+        .grid-container {
+            display: grid;
+            grid-template-columns: auto auto auto auto auto auto auto auto;
+            background-color: #ffffff;
+            height: 100vh;
+            width: 100vh;
+        }
+
+        .grid-item {
+            background-color: rgb(0, 0, 0);
+            border: 1px solid rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            font-size: 30px;
+            text-align: center;
+            
+        }
+
+        .grid-item1 {
+            background-color: rgb(255, 255, 255);
+            border: 1px solid rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            font-size: 30px;
+            text-align: center;
+            color: white;
+        }
+        .box{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+        }
+
+        @media screen and (min-width: 900px) {
+            .grid-item {
+                font-size: 2vw; /* adjusted font size for larger screens */
+            }
+        }
+
+        @media screen and (min-width: 900px) {
+            body {
+                background-color: lightblue;
+            }
+        }
+          
+        
+        </style>
+    <title>Chess Board</title>
+</head>
+<body>
+<div class="box">
+    <div class="grid-container">
+        <div class="grid-item1">1</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item1">3</div>
+        <div class="grid-item">4</div>
+        <div class="grid-item1">5</div>
+        <div class="grid-item">6</div>
+        <div class="grid-item1">7</div>
+        <div class="grid-item">8</div>
+
+        
+        <div class="grid-item">1</div>
+        <div class="grid-item1">2</div>
+        <div class="grid-item">3</div>
+        <div class="grid-item1">4</div>
+        <div class="grid-item">5</div>
+        <div class="grid-item1">6</div>
+        <div class="grid-item">7</div>
+        <div class="grid-item1">8</div>
+
+        
+        <div class="grid-item1">1</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item1">3</div>
+        <div class="grid-item">4</div>
+        <div class="grid-item1">5</div>
+        <div class="grid-item">6</div>
+        <div class="grid-item1">7</div>
+        <div class="grid-item">8</div>
+
+        
+        <div class="grid-item">1</div>
+        <div class="grid-item1">2</div>
+        <div class="grid-item">3</div>
+        <div class="grid-item1">4</div>
+        <div class="grid-item">5</div>
+        <div class="grid-item1">6</div>
+        <div class="grid-item">7</div>
+        <div class="grid-item1">8</div>
+
+        <div class="grid-item1">1</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item1">3</div>
+        <div class="grid-item">4</div>
+        <div class="grid-item1">5</div>
+        <div class="grid-item">6</div>
+        <div class="grid-item1">7</div>
+        <div class="grid-item">8</div>
+
+        
+        <div class="grid-item">1</div>
+        <div class="grid-item1">2</div>
+        <div class="grid-item">3</div>
+        <div class="grid-item1">4</div>
+        <div class="grid-item">5</div>
+        <div class="grid-item1">6</div>
+        <div class="grid-item">7</div>
+        <div class="grid-item1">8</div>
+
+        <div class="grid-item1">1</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item1">3</div>
+        <div class="grid-item">4</div>
+        <div class="grid-item1">5</div>
+        <div class="grid-item">6</div>
+        <div class="grid-item1">7</div>
+        <div class="grid-item">8</div>
+        
+        <div class="grid-item">1</div>
+        <div class="grid-item1">2</div>
+        <div class="grid-item">3</div>
+        <div class="grid-item1">4</div>
+        <div class="grid-item">5</div>
+        <div class="grid-item1">6</div>
+        <div class="grid-item">7</div>
+        <div class="grid-item1">8</div>
+    </div>
+</div>
+</body>
+</html>
+
+
+
+
+/////////////////////////////////////////////////////
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #chessboard {
+        display: flex;
+        flex-direction: column;
+        max-width: 90vw; /* Set maximum width */
+        max-height: 90vh; /* Set maximum height */
+        width: 90vw;
+        height: 90vh;
+        border: 2px solid black; /* Just for visualization */
+      }
+
+      .cellContainer {
+        display: flex;
+        flex: 1;
+      }
+
+      .cell {
+        flex: 1; /* Fill available space equally */
+        aspect-ratio: 1; /* Maintain square shape */
+        border: 1px solid black;
+      }
+
+      @media screen and (max-width: 90vw) and (max-height: 90vh) {
+        /* Adjust styles for smaller screens */
+        #chessboard {
+          max-width: 80vw;
+          max-height: 80vw;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="chessboard"></div>
+    <script src="chessboard.js"></script>
+    <script>
+      function resizeChessboard() {
+        const chessboard = document.getElementById("chessboard");
+        const width = window.innerWidth * 0.9; // 90% of window width
+        const height = window.innerHeight * 0.9; // 90% of window height
+
+        chessboard.style.width = ${width}px;
+        chessboard.style.height = ${height}px;
+
+        const cells = document.querySelectorAll(".cell");
+        const cellSize = Math.min(width, height) / 8; // Dividing into 8x8 grid
+
+        cells.forEach((cell) => {
+          cell.style.width = ${cellSize}px;
+          cell.style.height = ${cellSize}px;
+        });
+      }
+
+      // Call the function initially and on window resize
+      window.addEventListener("resize", resizeChessboard);
+      resizeChessboard();
+
+      let chessboard = document.getElementById("chessboard");
+
+      for (let i = 1; i < 8; i++) {
+        let cellcontainer = document.createElement("div");
+        cellcontainer.className = "cellContainer";
+        for (let j = 1; j < 8; j++) {
+          let cell = document.createElement("div");
+          cell.className = "cell";
+
+          if (i % 2 == 0) {
+            if (j % 2 == 0) {
+              cell.style.backgroundColor = "black";
+            } else {
+              cell.style.backgroundColor = "white";
+            }
+          } else {
+            if (j % 2 == 0) {
+              cell.style.backgroundColor = "white";
+            } else {
+              cell.style.backgroundColor = "black";
+            }
+          }
+
+          cellcontainer.append(cell);
+        }
+        chessboard.append(cellcontainer);
+      }
+    </script>
+  </body>
+</html>
