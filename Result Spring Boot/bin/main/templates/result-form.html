@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Student Result Form</title>
+</head>
+<body>
+    <h1>Student Result Form</h1>
+    <form th:action="@{/calculateGrade}" th:object="${studentResult}" method="post">
+        <label for="studentName">Student Name:</label>
+        <input type="text" id="studentName" th:field="*{studentName}" required><br>
+        <br>
+        <label for="dataStructureMarks">Data Structure Marks:</label>
+        <input type="number" id="dataStructureMarks" th:field="*{dataStructureMarks}" required><br>
+        
+        <label for="operatingSystemMarks">Operating System Marks:</label>
+        <input type="number" id="operatingSystemMarks" th:field="*{operatingSystemMarks}" required><br>
+        
+        <label for="theoryOfComputationMarks">Theory of Computation Marks:</label>
+        <input type="number" id="theoryOfComputationMarks" th:field="*{theoryOfComputationMarks}" required><br>
+        
+        <label for="coaMarks">COA Marks:</label>
+        <input type="number" id="coaMarks" th:field="*{coaMarks}" required><br>
+        
+        <label for="ediMarks">EDI Marks:</label>
+        <input type="number" id="ediMarks" th:field="*{ediMarks}" required><br>
+        
+        <button type="submit">Calculate Grades</button>
+    </form>
+</body>
+
+</html>

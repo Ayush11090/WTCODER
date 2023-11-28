@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Student Result</title>
+</head>
+<body>
+    <h1>Student Result</h1>
+    <p th:text="'Name: ' + ${studentResult.studentName}"></p>
+    
+    <h2>Subject Grades:</h2>
+    <p th:text="'Data Structure Grade: ' + ${studentResult.dataStructureGrade}"></p>
+    <p th:text="'Operating System Grade: ' + ${studentResult.operatingSystemGrade}"></p>
+    <p th:text="'Theory of Computation Grade: ' + ${studentResult.theoryOfComputationGrade}"></p>
+    <p th:text="'COA Grade: ' + ${studentResult.coaGrade}"></p>
+    <p th:text="'EDI Grade: ' + ${studentResult.ediGrade}"></p>
+</body>
+</html>
