@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Search and Sort Demo</title>
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 0;
+    }
+
+    div {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      color: #343a40;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    p {
+      margin-top: 10px;
+    }
+
+    span {
+      color: #007bff;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div>
+    <h2>Integer Array Operations</h2>
+
+    <label for="inputArray">Enter Integer Array (comma-separated):</label>
+    <input type="text" id="inputArray" placeholder="e.g., 5, 2, 8, 1, 7">
+
+    <button onclick="performOperations()">Perform Operations</button>
+
+    <p><strong>Original Array:</strong> <span id="originalArray"></span></p>
+    <p><strong>Sorted Array:</strong> <span id="sortedArray"></span></p>
+
+    <label for="searchValue">Search for Value:</label>
+    <input type="number" id="searchValue" placeholder="Enter value">
+    <button onclick="searchValue()">Search</button>
+    <p><strong>Search Result:</strong> <span id="searchResult"></span></p>
+  </div>
+
+  <script>
+    function performOperations() {
+      // Get input array
+      const inputArrayString = document.getElementById('inputArray').value;
+      const originalArray = inputArrayString.split(',').map(Number);
+
+      // Display original array
+      $('#originalArray').text(originalArray.join(', '));
+
+      // Sort the array
+      const sortedArray = [...originalArray].sort((a, b) => a - b);
+
+      // Display sorted array
+      $('#sortedArray').text(sortedArray.join(', '));
+    }
+
+    function searchValue() {
+      // Get search value
+      const searchValue = parseInt(document.getElementById('searchValue').value);
+
+      // Get sorted array
+      const sortedArrayString = $('#sortedArray').text();
+      const sortedArray = sortedArrayString.split(',').map(Number);
+
+      // Use binary search to find the value
+      const index = binarySearch(sortedArray, searchValue);
+
+      // Display search result
+      if (index !== -1) {
+        $('#searchResult').text(`Value ${searchValue} found at index ${index}`);
+      } else {
+        $('#searchResult').text(`Value ${searchValue} not found`);
+      }
+    }
+
+    // Binary search function
+    function binarySearch(arr, target) {
+      let left = 0;
+      let right = arr.length - 1;
+
+      while (left <= right) {
+        const mid = Math.floor((left + right) / 2);
+
+        if (arr[mid] === target) {
+          return mid;
+        } else if (arr[mid] < target) {
+          left = mid + 1;
+        } else {
+          right = mid - 1;
+        }
+      }
+
+      return -1; // Not found
+    }
+  </script>
+
+</body>
+</html>
