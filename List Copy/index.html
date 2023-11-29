@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery List Copy and Delete</title>
+  <!-- Include jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <style>
+    /* Add some basic styling for better presentation */
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      margin-bottom: 5px;
+      cursor: pointer;
+    }
+    .selected {
+      background-color: #e0e0e0;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>List 1</h2>
+  <form id="userInputForm">
+    <label for="itemInput">Enter item:</label>
+    <input type="text" id="itemInput" required>
+    <button type="button" onclick="addItemToList1()">Add to List 1</button>
+  </form>
+  <ul id="list1" onclick="selectItem(event)"></ul>
+
+  <button type="button" onclick="deleteSelectedItems()">Delete Selected Items</button>
+  <button type="button" onclick="copySelectedItems()">Copy Selected Items</button>
+  <button type="button" onclick="copyAllItems()">Copy All Items</button>
+
+  <h2>List 2</h2>
+  <ul id="list2"></ul>
+
+  <script>
+    var lastCopiedIndex = -1;
+
+    // Function to add items to List 1
+    function addItemToList1() {
+      var userInput = $('#itemInput').val();
+      if (userInput.trim() !== '') {
+        $('#list1').append('<li>' + userInput + '</li>');
+        // Clear the input field
+        $('#itemInput').val('');
+      }
+    }
+
+    // Function to select and deselect items in List 1
+    function selectItem(event) {
+      var selectedItem = $(event.target);
+      selectedItem.toggleClass('selected');
+    }
+
+    // Function to delete selected items from List 1
+    function deleteSelectedItems() {
+      $('#list1 .selected').remove();
+    }
+
+    // Function to copy selected items from List 1 to List 2
+    function copySelectedItems() {
+      var selectedItems = $('#list1 .selected').clone();
+      $('#list2').append(selectedItems);
+    }
+
+    // Function to copy all items from List 1 to List 2
+    function copyAllItems() {
+      var allItems = $('#list1 li').clone();
+      $('#list2').append(allItems);
+    }
+  </script>
+</body>
+</html>
+
+<!-- 
+
+function copyListItems() {
+    var list1Items = $('#list1 li');
+    var startIndex = lastCopiedIndex + 1;
+
+    for (var i = startIndex; i < list1Items.length; i++) {
+      $('#list2').append(list1Items.eq(i).clone());
+    }
+
+    // Update the last copied index
+    lastCopiedIndex = list1Items.length - 1;
+  } -->

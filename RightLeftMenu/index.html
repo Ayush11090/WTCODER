@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive HTML CSS Layout</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header, footer {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
+
+    main {
+      display: flex;
+      flex-wrap: wrap;
+      flex: 1;
+    }
+
+    aside {
+      flex: 0 0 100%;
+      background-color: #ddd;
+      padding: 10px;
+    }
+
+    section {
+      flex: 1;
+      padding: 10px;
+    }
+
+    .menu {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .menu-item {
+      padding: 8px;
+      border-bottom: 1px solid #ccc;
+      text-decoration: none;
+      color: #333;
+    }
+
+    .menu-item:last-child {
+      border-bottom: none;
+    }
+
+    footer {
+      margin-top: auto;
+    }
+
+    /* Responsive styles */
+    @media (min-width: 768px) {
+      main {
+        flex-direction: row;
+      }
+
+      aside {
+        flex: 0 0 25%;
+      }
+
+      section {
+        flex: 1;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      aside, section {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Header</h1>
+  </header>
+
+  <main>
+    <aside>
+      <nav class="menu">
+        <a href="#" class="menu-item">Left Menu Item 1</a>
+        <a href="#" class="menu-item">Left Menu Item 2</a>
+        <a href="#" class="menu-item">Left Menu Item 3</a>
+      </nav>
+    </aside>
+
+    <section>
+      <h2>Main Content Area</h2>
+      <p>This is the main content area. You can add your content here.</p>
+    </section>
+
+    <aside>
+      <nav class="menu">
+        <a href="#" class="menu-item">Right Menu Item 1</a>
+        <a href="#" class="menu-item">Right Menu Item 2</a>
+        <a href="#" class="menu-item">Right Menu Item 3</a>
+      </nav>
+    </aside>
+  </main>
+
+  <footer>
+    <p>Footer</p>
+  </footer>
+
+</body>
+</html>
